@@ -20,4 +20,4 @@ jobs:
           repository: descartesresearch/suanming-experiment-controller
           file: Dockerfile
           path: .
-          tags: development
+          tags: latest
