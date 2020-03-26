@@ -33,9 +33,9 @@ spec:
     spec:
       serviceAccountName: internal-kubectl
       containers:
-    - name: internal-kubectl
-      image: descartesresearch/suanming-experiment-controller:latest
-      command: ["/controller/experiment1.sh"]
-      apiVersion: batch/v1
-      restartPolicy: Never
-  backoffLimit: 4
+      - name: internal-kubectl
+        image: descartesresearch/suanming-experiment-controller:latest
+        command: ["/controller/experiment1.sh"]
+        apiVersion: batch/v1
+        restartPolicy: Never
+  backoffLimit: 2
