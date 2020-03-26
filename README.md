@@ -26,7 +26,7 @@ The created role can afterwards be deleted using `kubectl delete -f kubernetes/c
 If the roles are created accordingly you can launch the desired experiment by using `create` with the respective `.yaml`.
 Example:
  
-      kubectl create -f kubernetes/experiment1.yaml
+    kubectl create -f kubernetes/experiment1.yaml
       
 This will launch a Kubernetes Job that will spin up the experiment environment, conduct the experiments, and then tear down the environment. 
 After completion, the Pod will still be available for log analysis, until it is deleted using `kubectl delete -f kubernetes/experiment1.yaml`.
