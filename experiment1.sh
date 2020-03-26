@@ -12,6 +12,6 @@ exit ;
 else
 echo "waiting for the keypress"
 kubectl version --client
-kubectl apply -f /controller/teastore/teastore-clusterip.yaml
+kubectl get po
 fi
 done
