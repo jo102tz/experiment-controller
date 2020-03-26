@@ -24,7 +24,7 @@ roleRef:
   name: manage-deployments
   apiGroup: rbac.authorization.k8s.io
 ---
-apiVersion: v1
+apiVersion: batch/v1
 kind: Job
 metadata:
   name: experiment-1
@@ -36,6 +36,5 @@ spec:
       - name: internal-kubectl
         image: descartesresearch/suanming-experiment-controller:latest
         command: ["/controller/experiment1.sh"]
-        apiVersion: batch/v1
         restartPolicy: Never
   backoffLimit: 2
