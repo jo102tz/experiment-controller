@@ -3,6 +3,7 @@ echo "Starting setup for experiment 1..."
 
 echo "Start TeaStore application..."
 kubectl version --client
+kubectl apply -f /teastore/teastore-clusterip.yaml
 
 echo "Press any key to continue"
 while [ true ] ; do
@@ -11,7 +12,5 @@ if [ $? = 0 ] ; then
 exit ;
 else
 echo "waiting for the keypress"
-kubectl version --client
-kubectl get po
 fi
 done
