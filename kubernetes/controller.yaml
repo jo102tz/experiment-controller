@@ -36,5 +36,5 @@ spec:
       - name: internal-kubectl
         image: descartesresearch/suanming-experiment-controller:latest
         command: ["/controller/experiment1.sh"]
-        restartPolicy: Never
+      restartPolicy: Never
   backoffLimit: 2
