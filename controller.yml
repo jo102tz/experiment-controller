@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: controller
-spec:
-  serviceAccountName: internal-kubectl
-  containers:
-    - name: internal-kubectl
-      image: descartesresearch/suanming-experiment-controller:latest
