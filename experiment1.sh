@@ -8,7 +8,7 @@ kubectl create -f /controller/teastore/teastore-clusterip.yaml
 echo "Application up!"
 
 echo "Start load generator slaves..."
-kubectl create -f loadgenerator/loadgenerator-pod.yaml
+kubectl create -f /controller/loadgenerator/loadgenerator-pod.yaml
 echo "Generators up!"
 
 echo "Setup complete!"
@@ -22,7 +22,7 @@ done
 
 echo "Start clean up..."
 kubectl delete -f /controller/teastore/teastore-clusterip.yaml
-kubectl delete -f loadgenerator/loadgenerator-pod.yaml
+kubectl delete -f /controller/loadgenerator/loadgenerator-pod.yaml
 
 echo "Clean up complete!"
 echo "Finished!"
