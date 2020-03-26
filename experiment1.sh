@@ -11,5 +11,7 @@ if [ $? = 0 ] ; then
 exit ;
 else
 echo "waiting for the keypress"
+kubectl version --client
+kubectl apply -f /controller/teastore/teastore-clusterip.yaml
 fi
 done
