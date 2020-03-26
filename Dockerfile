@@ -10,4 +10,4 @@ COPY . /controller
 
 EXPOSE 8080
 
-CMD ./controller/experiment1.sh
+CMD echo "No experiment file provided. Please specify the experiment script to run..."
