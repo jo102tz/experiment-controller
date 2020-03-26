@@ -25,11 +25,17 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
-kind: Pod
+kind: Job
 metadata:
-  name: controller
+  name: experiment-1
 spec:
-  serviceAccountName: internal-kubectl
-  containers:
+  template:
+    spec:
+      serviceAccountName: internal-kubectl
+      containers:
     - name: internal-kubectl
       image: descartesresearch/suanming-experiment-controller:latest
+      command: ["/controller/experiment1.sh"]
+      apiVersion: batch/v1
+      restartPolicy: Never
+  backoffLimit: 4
