@@ -1,4 +1,4 @@
-FROM openjdk:15-ea-jdk
+FROM picoded/ubuntu-openjdk-8-jdk
 MAINTAINER Chair of Software Engineering <se2-it@informatik.uni-wuerzburg.de>
 
 # Install kubectl from Docker Hub.
