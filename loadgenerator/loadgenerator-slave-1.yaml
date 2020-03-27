@@ -31,7 +31,9 @@ spec:
   ports:
     - protocol: TCP
       port: 80
+      name: tcp-traffic
     - protocol: TCP
       port: 24226
+      name: tcp-control
   type: ClusterIP
          
