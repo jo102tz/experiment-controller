@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM openjdk:15-jdk
 MAINTAINER Chair of Software Engineering <se2-it@informatik.uni-wuerzburg.de>
 
 # Install kubectl from Docker Hub.
