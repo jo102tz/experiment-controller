@@ -17,6 +17,8 @@ echo "Tearing down after 20 seconds.."
 for i in {1..20}
 do
 echo "Waited for $i seconds..."
+curl http://teastore-webui:30080/tools.descartes.teastore.webui/
+curl http://teastore-webui:8080/tools.descartes.teastore.webui/
 sleep 1
 done
 
