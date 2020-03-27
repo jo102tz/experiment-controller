@@ -17,10 +17,12 @@ echo "Tearing down after 20 seconds.."
 for i in {1..20}
 do
 echo "Waited for $i seconds..."
-curl http://10.100.56.111:30080/tools.descartes.teastore.webui/
-curl http://10.100.56.111:8080/tools.descartes.teastore.webui/
 sleep 1
 done
+
+echo "Starting load..."
+java -jar /controller/loadgenerator/httploadgenerator.jar director --ip 10.100.111.168 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua teastore_browse.lua
+
 
 echo "Start clean up..."
 kubectl delete -f /controller/teastore/teastore-clusterip.yaml
