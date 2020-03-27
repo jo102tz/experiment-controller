@@ -6,10 +6,12 @@ metadata:
     app: loadgenerator
     depl: loadgenerator-slave-1
 spec:
+  selector:
+      app: loadgenerator-inst-1
   template:
     metadata:
       labels:
-        app: loadgenerator
+        app: loadgenerator-inst-1
     spec:
       containers:
         - name: loadgenerator-slave
