@@ -6,6 +6,8 @@ COPY --from=lachlanevenson/k8s-kubectl:v1.15.10 /usr/local/bin/kubectl /usr/loca
 
 # Copy script to replace placeholders in context.xml with the environment variables
 RUN mkdir controller
+RUN apt-get update
+RUN apt-get install -y dnsutils
 COPY . /controller
 
 EXPOSE 8080
