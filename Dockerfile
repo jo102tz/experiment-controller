@@ -9,5 +9,7 @@ RUN mkdir controller
 COPY . /controller
 
 EXPOSE 8080
+EXPOSE 80
+EXPOSE 24226
 
 CMD echo "No experiment file provided. Please specify the experiment script to run..."
