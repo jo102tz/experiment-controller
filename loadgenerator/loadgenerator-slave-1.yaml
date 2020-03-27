@@ -7,7 +7,8 @@ metadata:
     depl: loadgenerator-slave-1
 spec:
   selector:
-    app: loadgenerator-inst-1
+    matchLabels:
+      app: loadgenerator-inst-1
   template:
     metadata:
       labels:
