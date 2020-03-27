@@ -21,7 +21,7 @@ sleep 1
 done
 
 echo "Starting load..."
-java -jar /controller/loadgenerator/httploadgenerator.jar director --ip loadgenerator-slave-1 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua teastore_browse.lua
+java -jar /controller/loadgenerator/httploadgenerator.jar director --ip 10.100.25.158 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua teastore_browse.lua
 
 
 echo "Start clean up..."
