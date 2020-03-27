@@ -1,4 +1,4 @@
-FROM openjdk:15-jdk
+FROM openjdk:15-ea-jdk
 MAINTAINER Chair of Software Engineering <se2-it@informatik.uni-wuerzburg.de>
 
 # Install kubectl from Docker Hub.
@@ -6,8 +6,9 @@ COPY --from=lachlanevenson/k8s-kubectl:v1.15.10 /usr/local/bin/kubectl /usr/loca
 
 # Copy script to replace placeholders in context.xml with the environment variables
 RUN mkdir controller
-RUN apt-get update
-RUN apt-get install -y dnsutils
+RUN apk update
+RUN apk add dnsutils
+#RUN apt-get install -y dnsutils
 COPY . /controller
 
 EXPOSE 8080
