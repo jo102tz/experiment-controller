@@ -28,6 +28,7 @@ metadata:
 spec:
   selector:
     depl: loadgenerator-slave-1
+  clusterIP: 10.100.115.230
   ports:
     - protocol: TCP
       port: 80
