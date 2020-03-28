@@ -31,7 +31,7 @@ echo "Starting load..."
 java -jar /controller/loadgenerator/httploadgenerator.jar director --ip 10.100.115.230 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua
 
 
-java -jar /controller/lloadgenerator/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua
+java -jar /controller/loadgenerator/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua
 
 
 echo "Start clean up..."
