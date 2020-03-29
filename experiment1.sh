@@ -31,11 +31,11 @@ echo "Starting load..."
 java -jar /controller/loadgenerator/httploadgenerator.jar director --ip 10.100.115.230 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua
 
 
-java -jar /controller/loadgenerator/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/increasingLowIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua --timeout=3000
+java -jar /controller/loadgenerator/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/LongcloudArrivalRates140.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua --timeout=3000
 
 
 echo "Start clean up..."
-#kubectl delete -f /controller/loadgenerator/loadgenerator-slave-1.yaml
+kubectl delete -f /controller/loadgenerator/loadgenerator-slave-1.yaml
 kubectl delete -f /controller/teastore/teastore-clusterip.yaml
 
 
