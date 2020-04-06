@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: teastore-recommender
+spec:
+  template:
+    metadata:
+      labels:
+        app: teastore
+        run: teastore-recommender
+    spec:
+      containers:
+      - name: teastore-recommender
+        image: descartesresearch/teastore-recommender
+        ports:
+        - containerPort: 8080
+        env:
+        - name: HOST_NAME
+          value: "teastore-recommender"
+        - name: REGISTRY_HOST
+          value: "teastore-registry"
+        - name: RECOMMENDER_ALGORITHM
+          value: "OrderBased"
+        - name: RECOMMENDER_RETRAIN_LOOP_TIME
+          value: "120000"
+        resources:
+          requests:
+            memory: "4096Mi"
+            cpu: "1000m"
+          limits:
+            memory: "4096Mi"
+            cpu: "1000m"
