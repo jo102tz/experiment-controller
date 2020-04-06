@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: teastore-webui
+spec:
+  template:
+    metadata:
+      labels:
+        app: teastore
+        run: teastore-webui
+    spec:
+      containers:
+      - name: teastore-webui
+        image: descartesresearch/teastore-webui
+        ports:
+        - containerPort: 8080
+        env:
+        - name: HOST_NAME
+          value: "teastore-webui"
+        - name: REGISTRY_HOST
+          value: "teastore-registry"
+        resources:
+          requests:
+            memory: "4096Mi"
+            cpu: "1000m"
+          limits:
+            memory: "4096Mi"
+            cpu: "1000m"
