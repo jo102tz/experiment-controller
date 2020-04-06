@@ -228,6 +228,8 @@ spec:
           value: "teastore-recommender"
         - name: REGISTRY_HOST
           value: "teastore-registry"
+        - name: RECOMMENDER_ALGORITHM
+          value: "OrderBased"
         resources:
           requests:
             memory: "4096Mi"
