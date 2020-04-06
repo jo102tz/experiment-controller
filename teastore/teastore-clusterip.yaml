@@ -231,7 +231,7 @@ spec:
         - name: RECOMMENDER_ALGORITHM
           value: "OrderBased"
         - name: RECOMMENDER_RETRAIN_LOOP_TIME
-          value: 120000
+          value: "120000"
         resources:
           requests:
             memory: "4096Mi"
