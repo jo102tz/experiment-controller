@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-train-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-train-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-train-service
+    spec:
+      containers:
+      - name: ts-train-service
+        image: codewisdom/ts-train-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 14567
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 14567
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

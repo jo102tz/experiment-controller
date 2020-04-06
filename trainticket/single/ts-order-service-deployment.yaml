@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-order-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-order-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-order-service
+    spec:
+      containers:
+      - name: ts-order-service
+        image: codewisdom/ts-order-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 12031
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 12031
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

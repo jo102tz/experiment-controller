@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-inside-payment-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-inside-payment-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-inside-payment-service
+    spec:
+      containers:
+      - name: ts-inside-payment-service
+        image: codewisdom/ts-inside-payment-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 18673
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 18673
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-assurance-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-assurance-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-assurance-service
+    spec:
+      containers:
+      - name: ts-assurance-service
+        image: codewisdom/ts-assurance-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 18888
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 18888
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

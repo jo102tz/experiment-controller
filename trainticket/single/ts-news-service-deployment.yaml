@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-news-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-news-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-news-service
+    spec:
+      containers:
+      - name: ts-news-service
+        image: codewisdom/ts-news-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 12862
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 12862
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

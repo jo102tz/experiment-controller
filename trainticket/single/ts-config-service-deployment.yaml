@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-config-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-config-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-config-service
+    spec:
+      containers:
+      - name: ts-config-service
+        image: codewisdom/ts-config-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 15679
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 15679
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

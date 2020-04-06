@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-food-map-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-food-map-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-food-map-service
+    spec:
+      containers:
+      - name: ts-food-map-service
+        image: codewisdom/ts-food-map-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 18855
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 18855
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5

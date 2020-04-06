@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-seat-service
+spec:
+  selector:
+    matchLabels:
+      app: ts-seat-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts-seat-service
+    spec:
+      containers:
+      - name: ts-seat-service
+        image: codewisdom/ts-seat-service:0.0.3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 18898
+        resources:
+          requests:
+            cpu: 50m
+            memory: 160Mi
+          limits:
+            cpu: 200m
+            memory: 500Mi
+        readinessProbe:
+          tcpSocket:
+            port: 18898
+          initialDelaySeconds: 160
+          periodSeconds: 10
+          timeoutSeconds: 5
