@@ -8,7 +8,7 @@ spec:
       serviceAccountName: internal-kubectl
       containers:
       - name: experiment-controller
-        image: descartesresearch/suanming-experiment-controller:latest
+        image: jo102tz/suanming-experiment-controller:latest
         command: ["/controller/experiment1.sh"]
       restartPolicy: Never
   backoffLimit: 2
