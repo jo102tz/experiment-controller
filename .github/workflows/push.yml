@@ -17,7 +17,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_ID }}
           password: ${{ secrets.DOCKER_PW }}
-          repository: descartesresearch/suanming-experiment-controller
+          repository: jo102tz/suanming-experiment-controller
           file: Dockerfile
           path: .
           tags: latest
@@ -29,7 +29,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_ID }}
           password: ${{ secrets.DOCKER_PW }}
-          repository: descartesresearch/suanming-loadgenerator
+          repository: jo102tz/suanming-loadgenerator
           file: loadgenerator/Dockerfile
           path: loadgenerator/
           tags: latest
