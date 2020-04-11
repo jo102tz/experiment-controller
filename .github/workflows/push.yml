@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - run: mvn -f ./loadgenerator/source/tools.descartes.dlim.httploadgenerator/ clean install
+      - run: mvn clean install -f ./loadgenerator/source/tools.descartes.dlim.httploadgenerator/ -DoutputDirectory=./loadgenerator/
       - uses: jerray/publish-docker-action@master
         with:
           username: ${{ secrets.DOCKER_ID }}
