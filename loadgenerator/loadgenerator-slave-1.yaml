@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: loadgenerator-slave
-          image: descartesresearch/suanming-loadgenerator:latest
+          image: jo102tz/loadgenerator:latest
           ports:
           - containerPort: 80
           - containerPort: 24226
