@@ -33,7 +33,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_ID }}
           password: ${{ secrets.DOCKER_PW }}
-          repository: jo102tz/suanming-loadgenerator
+          repository: jo102tz/loadgenerator
           file: loadgenerator/Dockerfile
           path: loadgenerator/
           tags: latest
