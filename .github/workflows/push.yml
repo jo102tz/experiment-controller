@@ -41,5 +41,5 @@ jobs:
           password: ${{ secrets.DOCKER_PW }}
           repository: jo102tz/loadgenerator
           file: loadgenerator/Dockerfile
-          path: loadgenerator/
+          path: .
           tags: latest
