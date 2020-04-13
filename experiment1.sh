@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Starting setup for experiment 1..."
 
 kubectl version --client
