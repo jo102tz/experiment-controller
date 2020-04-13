@@ -19,6 +19,10 @@ done
 nslookup loadgenerator-slave-1
 nslookup ts-ui-dashboard
 
+echo "Creating user accounts..."
+/controller/trainticket/loads/createAccounts.sh 100
+echo "Created 100 user accounts"
+
 java -jar /controller/httploadgenerator.jar loadgenerator & 
 
 
