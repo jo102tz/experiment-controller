@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: experiment-5
+spec:
+  template:
+    spec:
+      serviceAccountName: internal-kubectl
+      containers:
+      - name: experiment-controller
+        image: jo102tz/suanming-experiment-controller:latest
+        command: ["/controller/experiment5.sh"]
+      restartPolicy: Never
+  backoffLimit: 2
