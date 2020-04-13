@@ -23,8 +23,7 @@ done
 nslookup loadgenerator-slave-1
 nslookup teastore-webui
 
-java -jar /controller/httploadgenerator.jar loadgenerator & 
-
+java -jar /controller/httploadgenerator.jar loadgenerator &
 
 java -jar /controller/httploadgenerator.jar director --ip loadgenerator-slave-1 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua
 echo "Starting load..."
