@@ -26,6 +26,7 @@ import org.eclipse.jetty.client.util.StringContentProvider;
 import org.luaj.vm2.Globals;
 import org.luaj.vm2.LuaTable;
 import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.LuaError;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
 import tools.descartes.dlim.httploadgenerator.http.lua.HTMLFunctions;
@@ -88,7 +89,9 @@ public class HTTPInputGenerator {
 			library.set("getMatches", new GetMatches(htmlFunctions));
 			library.set("extractMatches", new ExtractAllMatches(htmlFunctions));
 			luaGlobals.set("html", library);
-			luaGlobals.get("math").get("randomseed").call(LuaValue.valueOf(5));
+			// TODO: Hier kann random seed eingestellt werden (vorher war hier 5, jetzt id + 1)
+			//LOG.info("Generator ID: " + id);
+			luaGlobals.get("math").get("randomseed").call(LuaValue.valueOf(id + 1));
 			luaGlobals.get("dofile").call(LuaValue.valueOf(scriptFile.getAbsolutePath()));
 		}
 	}
@@ -128,7 +131,8 @@ public class HTTPInputGenerator {
 		if (currentCallNum < 1) {
 			restartCycle();
 		}
-		LuaValue lvcall = luaGlobals.get(LUA_CALL).call(LuaValue.valueOf(currentCallNum));
+        /*
+        Alt: LuaValue lvcall = luaGlobals.get(LUA_CALL).call(LuaValue.valueOf(currentCallNum));
 		if (lvcall.isnil()) {
 			restartCycle();
 			return getNextInput();
@@ -137,6 +141,23 @@ public class HTTPInputGenerator {
 			lastInput = lvcall.optjstring("");
 			return lastInput;
 		}
+         */
+        LuaValue lvcall;
+        try {
+            lvcall = luaGlobals.get(LUA_CALL).call(LuaValue.valueOf(currentCallNum));
+            if (lvcall.isnil()) {
+                restartCycle();
+                return getNextInput();
+            } else {
+                currentCallNum++;
+                lastInput = lvcall.optjstring("");
+                return lastInput;
+            }
+        } catch (LuaError le) {
+            LOG.warning("LuaError occured:\n" + le.toString());
+            restartCycle();
+            return getNextInput();
+        }
 	}
 
 	/**
@@ -150,7 +171,8 @@ public class HTTPInputGenerator {
 		}
 		LuaValue cycleInit = luaGlobals.get(LUA_CYCLE_INIT);
 		if (!cycleInit.isnil()) {
-			cycleInit.call();
+			// TODO: ID als Uebergabe eingefuegt
+			cycleInit.call(LuaValue.valueOf(id));
 		}
 	}
 
