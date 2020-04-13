@@ -1,6 +1,6 @@
 -- Global variables (initialized at load driver startup)
 -- IP address of TrainTicket
-prefix = "http://10.1.3.43"
+prefix = "http://ts-ui-dashboard:8080"
 
 --[[
 	Gets called at the beginning of each "call
