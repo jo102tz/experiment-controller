@@ -1,6 +1,6 @@
 -- Global variables (initialized at load driver startup)
 -- IP address of TrainTicket
-prefix = "http://10.1.3.43"
+prefix = "http:/ts-ui-dashboard:8080"
 -- Number of users
 no_of_users = 1000
 -- Errornous input for travel query (same for every user)
