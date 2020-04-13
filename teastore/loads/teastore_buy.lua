@@ -17,7 +17,7 @@ postIndex = {3, 11, 13}
 	Initialize all global variables here.
 	Note that math.random is already initialized using a fixed seed (5) for reproducibility.
 --]]
-function onCycle()
+function onCycle(generatorId)
 	userpostfix = 1 + math.random(90)
 	calls = {
 	"",
