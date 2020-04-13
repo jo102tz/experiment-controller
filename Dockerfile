@@ -8,7 +8,7 @@ COPY --from=lachlanevenson/k8s-kubectl:v1.15.10 /usr/local/bin/kubectl /usr/loca
 RUN mkdir controller
 RUN apt-get update
 RUN apt-get install -y dnsutils
-ADD ./* controller/
+COPY . controller/
 
 EXPOSE 8080
 EXPOSE 80
