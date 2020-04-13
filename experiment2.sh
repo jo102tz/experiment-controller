@@ -22,10 +22,10 @@ nslookup ts-ui-dashboard
 java -jar /controller/httploadgenerator.jar loadgenerator & 
 
 
-java -jar /controller/httploadgenerator.jar director --ip loadgenerator-slave-1 --load /controller/teastore/loads/increasingHighIntensity.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua
+java -jar /controller/httploadgenerator.jar director --ip loadgenerator-slave-1 --load /controller/trainticket/loads/periodic_workload.csv -o exp2-slave.csv --lua /controller/trainticket/loads/basic.lua
 echo "Starting load..."
 
-java -jar /controller/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/LongcloudArrivalRates140.csv -o testlog.csv --lua /controller/teastore/loads/teastore_browse.lua --timeout=3000
+java -jar /controller/httploadgenerator.jar director --ip localhost --load /controller/trainticket/loads/periodic_workload.csv -o exp2-localhost.csv --lua /controller/trainticket/loads/basic.lua --timeout=3000
 
 
 echo "Start clean up..."
