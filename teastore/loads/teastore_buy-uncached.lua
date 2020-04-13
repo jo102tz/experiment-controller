@@ -9,7 +9,7 @@
 --]]
 prefix = "http://teastore-webui:8080/tools.descartes.teastore.webui/"
 productviewcount = 200
-postIndex = {3, 11}
+postIndex = {3, 11, 13}
 
 
 --[[
@@ -29,6 +29,8 @@ function onCycle(generatorId)
 	"category?page=1&category=",
 	"category?page=",
 	--[[[POST]--]]"cartAction?addToCart=&productid=",
+	"order",
+	--[[[POST]--]]"cartAction?firstname=User&lastname=User&address1=Road&address2=City&cardtype=volvo&cardnumber=314159265359&expirydate=12/2050&confirm=Confirm",
 	"profile",
 	--[[[POST]--]]"loginAction?logout=",
 	}
