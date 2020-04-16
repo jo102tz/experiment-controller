@@ -34,7 +34,7 @@ java -jar /controller/httploadgenerator.jar director --ip localhost --load /cont
 
 
 echo "Start clean up..."
-kubectl delete -f /controller/loadgenerator/loadgenerator-slave-1.yaml
+#kubectl delete -f /controller/loadgenerator/loadgenerator-slave-1.yaml
 #kubectl delete -f /controller/teastore/teastore-clusterip.yaml
 
 
