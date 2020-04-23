@@ -22,12 +22,12 @@ done
 nslookup loadgenerator-slave-1
 nslookup teastore-webui
 
-java -jar /controller/loadgenerator/httploadgenerator.jar loadgenerator & 
+java -jar /controller/httploadgenerator.jar loadgenerator & 
 
 #java -jar /controller/loadgenerator/httploadgenerator.jar director --ip loadgenerator-slave-1 --load /controller/teastore/loads/LongcloudArrivalRates140.csv -o experiment5.csv --lua /controller/teastore/loads/teastore_buy-uncached.lua --timeout=3000
 echo "Starting load..."
 
-java -jar /controller/loadgenerator/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/LongcloudArrivalRates140.csv -o experiment5.csv --lua /controller/teastore/loads/teastore_buy-uncached.lua --timeout=3000
+java -jar /controller/httploadgenerator.jar director --ip localhost --load /controller/teastore/loads/LongcloudArrivalRates140.csv -o experiment5.csv --lua /controller/teastore/loads/teastore_buy-uncached.lua --timeout=3000
 
 
 echo "Start clean up..."
